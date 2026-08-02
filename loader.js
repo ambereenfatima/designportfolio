@@ -18,6 +18,13 @@
         }
     });
 
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            const loader = document.getElementById('page-loader');
+            if (loader) loader.classList.add('loader-hidden');
+        }
+    });
+
     document.addEventListener('click', function (e) {
         const link = e.target.closest('a');
         if (!link) return;

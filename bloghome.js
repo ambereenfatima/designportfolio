@@ -22,7 +22,7 @@ async function loadPostList() {
         const posts = Array.isArray(data) ? data : data.posts;
 
         if (!posts || posts.length === 0) {
-            showEmptyState("no entries yet — check back soon.");
+            showEmptyState("no entries yet; check back soon!");
             hideLoader();
             return;
         }
@@ -74,7 +74,6 @@ function renderPostList(posts, listEl) {
 }
 
 /* single post */
-
 async function loadSinglePost(slug) {
     const container = document.getElementById("post-container");
     const subtitleEl = document.getElementById("journal-subtitle");

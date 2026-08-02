@@ -13,7 +13,12 @@ export default async function handler(req, res) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                filter: { property: 'slug', rich_text: { equals: slug } },
+                filter: {
+                    and: [
+                        { property: 'slug', rich_text: { equals: slug } },
+                        { property: 'published', checkbox: { equals: true } },
+                    ],
+                },
             }),
         }
     );
@@ -59,4 +64,3 @@ export default async function handler(req, res) {
         content: html,
     });
 }
-

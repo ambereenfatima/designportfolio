@@ -11,6 +11,10 @@ export default async function handler(req, res) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                filter: {
+                    property: 'published',
+                    checkbox: { equals: true },
+                },
                 sorts: [{ property: 'date', direction: 'descending' }],
             }),
         }

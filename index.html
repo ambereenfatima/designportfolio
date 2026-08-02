@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ambereen Fatima</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/media/sunicon.png" />
+</head>
+
+<body>
+
+    <div id="page-loader">
+        <div class="loader-stack">
+            <img src="media/sunflower.PNG" alt="" class="loader-icon icon-1">
+            <img src="media/sun.PNG" alt="" class="loader-icon icon-2">
+        </div>
+    </div>
+
+    <!-- navigation -->
+    <nav class="nav">
+        <a href="index.html" class="name">
+            <span class="name-full">ambereen fatima</span>
+            <span class="name-short">af</span>
+        </a>
+        <div class="links">
+            <a href="index.html">home</a>
+            <a href="bloghome.html">blog</a>
+            <a href="aboutme.html">about</a>
+        </div>
+    </nav>
+
+    <!-- hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="sticky-note teal">
+                hi, i'm ambs! i design cool digital spaces, visual identities, and interactive experiences with a heavy
+                focus on accessibility.
+            </div>
+            <div class="sticky-note green">
+                i'm a big fan of tactical RPGs, cozy video games, digital art, video editing, and quiet moments (:
+            </div>
+            <div class="sticky-note blank one">
+                <img src="media/sunflower.PNG" alt="sunflower illustration" class="blank-img">
+            </div>
+            <div class="sticky-note blank two">
+                <img src="media/sun.PNG" alt="sun illustration" class="blank-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- my work -->
+    <h2 class="work-heading" id="work">My Work</h2>
+
+    <div class="work-grid">
+
+        <!-- art & social media column -->
+        <div class="work-col">
+            <div class="work-item" onclick="openWindow('win-art')">
+                <img src="art/fieldtasia.PNG" alt="illustrations preview" class="placeholder-img tall">
+                <p class="title">Illustrations</p>
+                <p class="desc">Original character designs, color studies, and atmospheric scenes.</p>
+            </div>
+            <div class="work-item" onclick="openWindow('win-social')">
+                <img src="socialmedia/socialmediathumb.JPG" alt="social media preview" class="placeholder-img tall">
+                <p class="title">Social Media</p>
+                <p class="desc">Custom graphics and brand-aligned layouts.</p>
+            </div>
+        </div>
+
+        <!-- art window -->
+        <div class="overlay" id="win-art">
+            <div class="window green">
+                <div class="window-bar">
+                    <span>art/</span>
+                    <span class="close-btn" onclick="closeWindow('win-art')">X</span>
+                </div>
+                <div class="window-body">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/anyamouthwashing.PNG" alt="anya mouthwashing"
+                                data-caption="Fan art: Anya from Mouthwashing"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Fan art</span>
+
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/helitasiadnd.PNG"
+                                alt="helios and fantasia dungeons and dragons"
+                                data-caption="Original characters: Fantasia and Helios from D&D campaign"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Original character</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/celicafireemblem.PNG" alt="celica fire emblem echoes"
+                                data-caption="Fan art: Celica from Fire Emblem Echoes: Shadows of Valentia"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Fanart</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/sothisfireemblem.PNG" alt="sothis fire emblem fortunes weave"
+                                data-caption="Fan art: Sothis from Fire Emblem: Fortune's Weave"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Fanart</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/sitri.PNG" alt="sitri dungeons and dragons"
+                                data-caption="Original characters: Sitri from D&D campaign"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Original character</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/flowertasia.PNG" alt="fantasia holding bouquet"
+                                data-caption="Original characters: Fantasia from D&D campaign"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Original character</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/azurafireemblem.PNG" alt="azura fire emblem fates"
+                                data-caption="Fan art: Azura from Fire Emblem: Fates"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Fan art</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="art/fieldtasia.PNG" alt="fantasia sitting on field"
+                                data-caption="Original character: Fantasia from D&D campaign"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Procreate</span>
+                                <span class="tool-tag">Original character</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- social media window -->
+        <div class="overlay" id="win-social">
+            <div class="window teal">
+                <div class="window-bar">
+                    <span>social_media/</span>
+                    <span class="close-btn" onclick="closeWindow('win-social')">X</span>
+                </div>
+                <div class="window-body">
+                    <div class="gallery-grid">
+                        <div class="gallery-item">
+                            <img class="art-img" src="socialmedia/seniorpost.png" alt="idia senior instagram post cover"
+                                data-caption="IDIA Rutgers: Senior recognition Instagram graphic"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Adobe Photoshop</span>
+                                <span class="tool-tag">Canva</span>
+                                <span class="tool-tag">Photography</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="socialmedia/seniorpostindiv.png"
+                                alt="idia senior spotlight instagram"
+                                data-caption="IDIA Rutgers: Senior spotlight Instagram graphic"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Canva</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="socialmedia/gala1.png"
+                                alt="idia gala showcase recap graphic instagram"
+                                data-caption="IDIA Rutgers: Event highlight Instagram graphic"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Adobe Photoshop</span>
+                                <span class="tool-tag">Canva</span>
+                                <span class="tool-tag">Photography</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="socialmedia/gala2.png" alt="idia gala recap graphic instagram"
+                                data-caption="IDIA Rutgers: Event highlight Instagram graphic"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Adobe Photoshop</span>
+                                <span class="tool-tag">Canva</span>
+                                <span class="tool-tag">Photography</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img class="art-img" src="socialmedia/gala3.png" alt="idia gala recap graphic instagram"
+                                data-caption="IDIA Rutgers: Event highlight Instagram graphic"
+                                onclick="openLightbox(this.src, this.dataset.caption)">
+                            <div class="tool-tags">
+                                <span class="tool-tag">Adobe Photoshop</span>
+                                <span class="tool-tag">Canva</span>
+                                <span class="tool-tag">Photography</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- shared lightbox -->
+        <div class="modal" id="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">x</span>
+            <img class="modal-content" id="lightbox-img" src="">
+            <p class="modal-caption" id="lightbox-caption"></p>
+        </div>
+
+        <!-- featured projects -->
+        <div class="work-col featured-project">
+            <a href="/projects/philmun.html" class="work-item-link">
+                <div class="work-item">
+                    <img src="media/philmunthumb.png" alt="illustrations preview" class="placeholder-img wide">
+                    <p class="title">Philadelphia Model United Nations</p>
+                    <p class="desc">Scalable brand identity, committee design system, and spatial touchpoints for 400+
+                        delegates. Translated complex conference briefs into a cohesive visual language spanning modular
+                        print components, social media series, and an interactive venue installation.</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- blog list -->
+        <div class="work-col" id="blog-preview">
+            <p class="blog-preview text">blogs</p>
+        </div>
+
+    </div>
+
+    <script>
+        fetch('/api/posts')
+            .then(res => res.json())
+            .then(posts => {
+                const grid = document.getElementById('blog-preview');
+                function formatDate(dateStr) {
+                    const d = new Date(dateStr);
+                    if (isNaN(d)) return dateStr;
+                    return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+                }
+                const recent = posts.slice(0, 6);
+                recent.forEach(post => {
+                    grid.innerHTML += `
+                <a href="blog.html?slug=${post.slug}" class="work-item-link">
+                  <div class="blog-item">
+                    <div class="blog-text">
+                    <p class="title">${post.title}</p>
+                    <p class="desc">${formatDate(post.date)}</p>
+                    </div>
+                    <img class="placeholder-img small" src="${post.cover}">
+                  </div>
+                </a>
+              `;
+                });
+                observeFadeIns('.blog-item');
+            });
+    </script>
+
+    <footer class="site-footer">
+        <p class="footer-tagline">only cool af designs here (:</p>
+        <p class="footer-contact">open to everything creative! <a
+                href="mailto:ambereensfatima@gmail.com">ambereensfatima@gmail.com</a>
+        </p>
+        <p class="footer-trademark">&copy; ambereen fatima 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

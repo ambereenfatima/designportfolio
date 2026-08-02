@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Quiet Interface</title>
+    <link rel="stylesheet" href="/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <script>window.MANUAL_LOADER_CONTROL = true;</script>
+    <script src="/loader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/media/sunicon.png" />
+</head>
+
+<body>
+
+    <div id="page-loader">
+        <div class="loader-stack">
+            <img src="media/sunflower.PNG" alt="" class="loader-icon icon-1">
+            <img src="media/sun.PNG" alt="" class="loader-icon icon-2">
+        </div>
+    </div>
+
+    <!-- navigation -->
+    <nav class="nav">
+        <a href="index.html" class="name">
+            <span class="name-full">ambereen fatima</span>
+            <span class="name-short">af</span>
+        </a>
+        <div class="links">
+            <a href="index.html">home</a>
+            <a href="bloghome.html">blog</a>
+            <a href="aboutme.html">about</a>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <a href="bloghome.html" class="journal-title">The Quiet Interface</a>
+        <p class="journal-subtitle">Notes at Evenfall</p>
+    </header>
+
+    <div class="post-container" id="post-container">
+        <h1 class="post-title" id="post-title"></h1>
+        <p class="post-description" id="post-description"></p>
+        <p class="post-date" id="post-date"></p>
+        <img class="post-banner" id="post-banner" src="" alt="">
+        <div class="post-body" id="post-body"></div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const slug = params.get('slug');
+
+        function showInlineLoader(container) {
+            container.innerHTML = `
+    <div class="inline-loader">
+      <div class="loader-stack">
+        <div class="loader-sticky note-1"></div>
+        <div class="loader-sticky note-2"></div>
+        <div class="loader-sticky note-3"></div>
+      </div>
+      <span>loading posts...</span>
+    </div>
+    `;
+        }
+
+        function formatDate(dateStr) {
+            const d = new Date(dateStr);
+            if (isNaN(d)) return dateStr;
+            return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+        }
+
+        fetch(`/api/post?slug=${slug}`)
+            .then(res => res.json())
+            .then(post => {
+                document.getElementById('post-title').innerHTML = post.title;
+                document.getElementById('post-date').textContent = formatDate(post.date);
+                document.getElementById('post-description').innerHTML = post.description;
+                document.getElementById('post-banner').src = post.banner;
+                document.getElementById('post-body').innerHTML = post.content;
+                document.getElementById('post-container').classList.add('is-visible');
+                window.hidePageLoader();
+            })
+            .catch(err => {
+                console.error(err);
+                window.hidePageLoader();
+            });
+
+    </script>
+
+    <footer class="site-footer">
+        <p class="footer-tagline">only cool af designs here (:</p>
+        <p class="footer-contact">open to everything creative! <a
+                href="mailto:ambereensfatima@gmail.com">ambereensfatima@gmail.com</a>
+        </p>
+        <p class="footer-trademark">&copy; ambereen fatima 2026</p>
+    </footer>
+
+</body>
+
+</html>

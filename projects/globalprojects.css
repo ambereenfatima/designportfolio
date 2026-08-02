@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color:
+        #d5bba4;
+    background:
+        #654a3d;
+    background-image: radial-gradient(circle, rgba(254, 176, 142, 0.215) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+/* page loader */
+#page-loader {
+    position: fixed;
+    inset: 0;
+    background:
+        #654a3d;
+    background-image: radial-gradient(circle, rgba(254, 176, 142, 0.215) 1px, transparent 1px);
+    background-size: 24px 24px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+#page-loader.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* load stack */
+.loader-stack {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-icon {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    animation: iconSpinFade 1.6s ease-in-out infinite;
+}
+
+.loader-icon.icon-1 {
+    animation-delay: 0s;
+}
+
+.loader-icon.icon-2 {
+    animation-delay: 0s;
+}
+
+@keyframes iconSpinFade {
+    0% {
+        transform: rotate(0deg);
+        opacity: 0.35;
+    }
+
+    50% {
+        transform: rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        opacity: 0.35;
+    }
+}
+
+/* navigation */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background:
+        #654a3d;
+    border-bottom: 1px solid #d5bba45d;
+}
+
+.nav .name {
+    font-variant: all-small-caps slashed-zero;
+    font-weight: 500;
+    color:
+        #d5bba4;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.name-short {
+    display: none;
+    text-decoration: none;
+    font-variant: all-small-caps slashed-zero;
+    font-weight: 400;
+    color:
+        #d5bba4;
+}
+
+.nav .links {
+    display: flex;
+    gap: 40px;
+    font-size: 18px;
+}
+
+.nav .links a {
+    font-variant: all-small-caps slashed-zero;
+    font-weight: 400;
+    color:
+        #d5bba4;
+    text-decoration: none;
+}
+
+.nav .links a:hover {
+    text-decoration: underline;
+}
+
+/* projects */
+.project-hero {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    display: block;
+}
+
+/* left column -> page scroll.
+right column (.project-gallery) is sticky and scrolls internally */
+.project-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 24px;
+    align-items: start;
+}
+
+.project-left {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.project-intro {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.project-title {
+    font-family: "Cormorant Infant", serif;
+    font-size: 34px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+}
+
+.project-tagline {
+    font-size: 15px;
+    line-height: 1.6;
+    color:
+        #d5bba4;
+}
+
+.project-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.meta-chip {
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    padding: 6px 12px;
+    border: 1px solid #d5bba47c;
+    border-radius: 999px;
+    color:
+        #d5bba4;
+    white-space: nowrap;
+}
+
+.project-details {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.project-details .accordion-item {
+    border-bottom: 1px solid #d5bba47c;
+}
+
+.project-details .accordion-item:first-child {
+    border-top: 1px solid #d5bba47c;
+}
+
+.project-details .accordion-toggle {
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    padding: 14px 4px 14px 0;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+    overflow: visible;
+}
+
+.project-details .accordion-toggle::after {
+    content: '';
+    flex-shrink: 0;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid #d5bba4;
+    border-bottom: 2px solid #d5bba4;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-left: 12px;
+}
+
+.project-details .accordion-item.is-open .accordion-toggle::after {
+    transform: rotate(-135deg);
+}
+
+.details-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.project-details .accordion-item.is-open .details-content {
+    grid-template-rows: 1fr;
+}
+
+.details-content>p {
+    padding-bottom: 16px;
+}
+
+.project-details p {
+    font-size: 14px;
+    line-height: 1.6;
+    color:
+        #d5bba4;
+}
+
+@media (max-width: 700px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* gallery */
+.project-gallery {
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-auto-rows: min-content;
+    align-items: start;
+    gap: 14px;
+    padding: 4px 12px 24px 4px;
+}
+
+.project-gallery p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+    grid-column: 1 / -1;
+}
+
+.project-gallery h2 {
+    font-family: "Cormorant Infant", serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 24px 0 8px;
+    grid-column: 1 / -1;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    background: rgba(213, 187, 164, 0.06);
+}
+
+.gallery-item--wide {
+    grid-column: span 2;
+}
+
+.gallery-item--xwide {
+    grid-column: span 3;
+}
+
+.project-gallery img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+    margin-bottom: 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gallery-item--flat img {
+    aspect-ratio: 762 / 540;
+}
+
+.gallery-item--square img {
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item--insta img {
+    aspect-ratio: 4 / 5;
+}
+
+.gallery-item--tall img {
+    aspect-ratio: 4 / 5;
+}
+
+.gallery-item--tall2x img {
+    aspect-ratio: 1 / 2;
+}
+
+.gallery-item--landscape img {
+    aspect-ratio: 16 / 9;
+}
+
+.project-gallery img.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-gallery .gallery-item:nth-child(2) img {
+    transition-delay: 0.06s;
+}
+
+.project-gallery .gallery-item:nth-child(3) img {
+    transition-delay: 0.12s;
+}
+
+.project-gallery .gallery-item:nth-child(4) img {
+    transition-delay: 0.18s;
+}
+
+.project-gallery .gallery-item:nth-child(5) img {
+    transition-delay: 0.24s;
+}
+
+.project-gallery .gallery-item:nth-child(6) img {
+    transition-delay: 0.30s;
+}
+
+.gallery-caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.177);
+    color:
+        #f3e6d8;
+    font-size: 13.5px;
+    line-height: 1.5;
+    opacity: 0;
+    overflow-y: auto;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    pointer-events: none;
+    border-radius: 0;
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.593) 55%, rgba(0, 0, 0, 0.284) 100%);
+}
+
+@media (max-width: 700px) {
+    .project-gallery {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .name-full {
+        display: none;
+    }
+
+    .name-short {
+        display: inline;
+    }
+
+    .nav {
+        padding: 16px 20px;
+    }
+
+    .nav .links {
+        gap: 20px;
+        font-size: 15px;
+    }
+}
+
+.site-footer {
+    text-align: center;
+    padding: 48px 24px 32px;
+}
+
+.footer-tagline {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.footer-contact {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.footer-contact a {
+    color: inherit;
+}
+
+.footer-trademark {
+    font-size: 12px;
+    letter-spacing: 0.03em;
+}

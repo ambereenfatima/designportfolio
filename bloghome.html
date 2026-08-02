@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Quiet Interface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,500&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@300;400;500;600&family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="bloghome.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/media/sunicon.png" />
+</head>
+
+<body>
+
+    <div id="page-loader">
+        <div class="loader-stack">
+            <img src="media/sunflower.PNG" alt="" class="loader-icon icon-1">
+            <img src="media/sun.PNG" alt="" class="loader-icon icon-2">
+        </div>
+    </div>
+
+    <!-- navigation -->
+    <nav class="nav">
+        <a href="index.html" class="name">
+            <span class="name-full">ambereen fatima</span>
+            <span class="name-short">af</span>
+        </a>
+        <div class="links">
+            <a href="index.html">home</a>
+            <a href="bloghome.html">blog</a>
+            <a href="aboutme.html">about</a>
+        </div>
+    </nav>
+
+    <!-- blog header -->
+    <header class="blog-header">
+        <a href="bloghome.html" class="journal-title">The Quiet Interface</a>
+        <p class="journal-subtitle">Notes at Evenfall</p>
+        <p>A cozy corner for deep dives into interface design, video games, and whatever media has me hooked right now.
+            No loud hot takes; just honest, passionate breakdowns of great stories, design systems, and screen culture.
+        </p>
+        <p class="disclaimer">This blog is a non-commercial. All images, characters,
+            and related media are registered trademarks and copyrights of their respective owners. No copyright
+            infringement is intended.</p>
+    </header>
+
+    <!-- list  -->
+    <main class="entry-list" id="entry-list" hidden></main>
+
+    <!-- single view -->
+    <article class="post-container" id="post-container" hidden>
+        <div class="post-date" id="post-date"></div>
+        <h1 class="post-title" id="post-title"></h1>
+        <p class="post-description" id="post-description"></p>
+        <img class="post-banner" id="post-banner" hidden>
+        <div class="post-body" id="post-body"></div>
+        <a href="blog.html" class="back-to-journal">&larr; back to the journal</a>
+    </article>
+
+    <!-- empty error -->
+    <div class="blog-empty-state" id="blog-empty-state" hidden>
+        <p></p>
+    </div>
+
+    <!-- footer -->
+    <footer class="site-footer">
+        <p class="footer-tagline">only cool af designs here (:</p>
+        <p class="footer-contact">
+            open to everything creative! <a href="mailto:ambereensfatima@gmail.com">ambereensfatima@gmail.com</a>
+        </p>
+        <p class="footer-trademark">&copy; ambereen fatima <span id="footer-year"></span></p>
+    </footer>
+
+    <script src="/script.js"></script>
+    <script src="bloghome.js"></script>
+</body>
+
+</html>

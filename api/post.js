@@ -1,5 +1,31 @@
 import { richTextToHtml } from './_richtext.js';
 
+async function getAllBlocks(pageId) {
+    let allBlocks = [];
+    let cursor = undefined;
+
+    while (true) {
+        const url = new URL(`https://api.notion.com/v1/blocks/${pageId}/children`);
+        url.searchParams.set('page_size', '100');
+        if (cursor) url.searchParams.set('start_cursor', cursor);
+
+        const res = await fetch(url, {
+            headers: {
+                Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
+                'Notion-Version': '2022-06-28',
+            },
+        });
+        const data = await res.json();
+
+        allBlocks = allBlocks.concat(data.results);
+
+        if (!data.has_more) break;
+        cursor = data.next_cursor;
+    }
+
+    return allBlocks;
+}
+
 export default async function handler(req, res) {
     const { slug } = req.query;
 
@@ -30,18 +56,9 @@ export default async function handler(req, res) {
         return;
     }
 
-    const blocksRes = await fetch(
-        `https://api.notion.com/v1/blocks/${page.id}/children`,
-        {
-            headers: {
-                Authorization: `Bearer ${process.env.NOTION_TOKEN}`,
-                'Notion-Version': '2022-06-28',
-            },
-        }
-    );
-    const blocksData = await blocksRes.json();
+    const blocks = await getAllBlocks(page.id);
 
-    const html = blocksData.results.map(block => {
+    const html = blocks.map(block => {
         if (block.type === 'paragraph') {
             return `<p>${richTextToHtml(block.paragraph.rich_text)}</p>`;
         }
